@@ -22,11 +22,11 @@ less_vim() {
     -c 'set scrolloff=999' \
     -c 'runtime! macros/less.vim' \
     -c 'set foldlevel=999' \
-    -c 'set nonumber' \
     -c 'set ruler' \
     -c 'set laststatus=2' \
     -c 'set textwidth=80' \
     -c 'set cursorline' \
+    -c 'set colorcolumn=0' \
     "$@"
 }
 
@@ -53,6 +53,8 @@ if do_ps | grep -q '\man\|perl\(doc\)\?\([0-9.]*\)\?\\>'; then
         fi
         proc=$next_parent
     done
-fi
+    else
+      echo "nah"
+    fi
 
 less_vim "$file"
