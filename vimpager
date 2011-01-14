@@ -9,7 +9,7 @@
 # · system type checks
 # · GPM
 # If perldoc is called, we use the specialized perldoc.vim syntax file,
-# available at http://trapd00r.se/configs/perldoc.vim
+# included in this distribution.
 
 file="$@"
 if [ -z "$file" ]; then file="-"; fi
@@ -17,7 +17,7 @@ if [ -z "$file" ]; then file="-"; fi
 linux=1
 
 less_vim() {
-    vim -R \
+    /usr/bin/vim -R \
     -c 'let no_plugin_maps = 1' \
     -c 'set scrolloff=999' \
     -c 'runtime! macros/less.vim' \
