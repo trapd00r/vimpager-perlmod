@@ -21,7 +21,7 @@ less_vim() {
     -c 'let no_plugin_maps = 1' \
     -c 'set scrolloff=999' \
     -c 'set foldlevel=999' \
-    -c 'set cc=0 tw=80 ruler cursorline ls=2 nonu' \
+    -c 'set cc=0 tw=80 ruler cursorline ls=2 nonu norelativenumber' \
     -c 'runtime! macros/less.vim' \
     "$@"
 }
