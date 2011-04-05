@@ -17,7 +17,7 @@ if [ -z "$file" ]; then file="-"; fi
 linux=1
 
 less_vim() {
-    /usr/bin/vim -R \
+    /usr/bin/vim -R -X \
     -c 'let no_plugin_maps = 1' \
     -c 'set scrolloff=999' \
     -c 'set foldlevel=999' \
@@ -39,18 +39,20 @@ ppid() {
 }
 
 # Check if called from man, perldoc or pydoc
-if do_ps | grep -q '\man\|perl\(doc\)\?\([0-9.]*\)\?\\>'; then
+if do_ps | grep -q '\man\|godoc\|perl\(doc\)\?\([0-9.]*\)\?\\>'; then
     proc=$$
     while next_parent=`ppid $proc` && [ $next_parent != 1 ]; do
         if pproc $next_parent | grep -q 'man\>'; then
             cat $file | sed -e 's/\[[^m]*m//g' | sed -e 's/.//g' | less_vim -c 'set ft=man' -; exit
         elif pproc $next_parent | grep -q 'perl\(doc\)\?\([0-9.]*\)\?\>'; then
             cat $file | sed -e 's/.//g' | less_vim -c 'set ft=perldoc' -; exit
+        elif pproc $next_parent | grep -q 'godoc'; then
+            cat $file | sed -e 's/.//g' | less_vim -c 'set ft=go' -; exit
         fi
         proc=$next_parent
     done
     else
-      echo "nah"
+      echo "Could not spawn vimpager."
     fi
 
 less_vim "$file"
