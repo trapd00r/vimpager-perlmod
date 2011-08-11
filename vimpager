@@ -4,25 +4,25 @@
 # Based on Bram's less.sh.
 # Perlified by Magnus Woldrich.
 
-# Removed unwanted 'features' in the original vimpager, including:
-# · python support
-# · system type checks
-# · GPM
 # If perldoc is called, we use the specialized perldoc.vim syntax file,
 # included in this distribution.
+#
+# Set wanted options in ~/.vimpagerrc
 
 file="$@"
 if [ -z "$file" ]; then file="-"; fi
 
-linux=1
+vimpagerrc=""
+
+if [ -f "$XDG_CONFIG_HOME/vimpagerrc" ]; then
+  vimpagerrc="$XDG_CONFIG_HOME/vimpagerrc"
+elif [ -f "$HOME/.vimpagerrc" ]; then
+  vimpagerrc="$HOME/vimpagerrc"
+fi
 
 less_vim() {
-  /usr/bin/vim -R -X --noplugins \
-    -c 'let no_plugin_maps = 1'    \
-    -c 'set scrolloff=999'         \
-    -c 'set foldlevel=999'         \
-    -c 'runtime! macros/less.vim'  \
-    -c 'set cc=0 tw=80 cursorline nonu norelativenumber cmdheight=1' \
+  /usr/bin/vim -R -X \
+    -c ":source $vimpagerrc" \
     "$@"
 }
 

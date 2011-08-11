@@ -1,0 +1,21 @@
+" ~/.vimpagerrc or $XDG_CONFIG_HOME/vimpagerrc
+
+runtime! macros/less.vim
+
+let no_plugin_maps = 1
+
+set cmdheight=1
+set colorcolumn=0
+set cursorline
+set foldlevel=999
+set scrolloff=999
+set tw=80
+
+if(exists('+cc'))
+  set colorcolumn=0
+endif
+if(exists('+rnu'))
+  set norelativenumber
+endif
+
+" vim: set ft=vim:

@@ -1,13 +1,18 @@
 vimpager-perlmod
-===========
+================
 Script to use VIM as a PAGER.
-
-Perl-ified to speed it up a bit.
 
 Custom syntax file for vim to use with perldoc documents.
 
-Now your late night reading documentation can be a little prettier:
-![screenshot](http://perl.japh.se/devel/vimpager/vimpager-perldoc.png)
+Place *examples/vimpagerrc* in $HOME/.vimpagerrc or $XDG_CONFIG_HOME/vimpagerrc.
+
+**perldoc**
+
+![screenshot](http://devel.japh.se/vimpager/vimpager-perldoc.png)
+
+**man**
+
+![screenshot](http://devel.japh.se/vimpager/vimpager-man.png)
 
 License
 =======
