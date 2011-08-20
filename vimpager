@@ -17,7 +17,7 @@ vimpagerrc=""
 if [ -f "$XDG_CONFIG_HOME/vimpagerrc" ]; then
   vimpagerrc="$XDG_CONFIG_HOME/vimpagerrc"
 elif [ -f "$HOME/.vimpagerrc" ]; then
-  vimpagerrc="$HOME/vimpagerrc"
+  vimpagerrc="$HOME/.vimpagerrc"
 fi
 
 less_vim() {
