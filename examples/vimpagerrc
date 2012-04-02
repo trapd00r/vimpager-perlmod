@@ -6,7 +6,6 @@ let no_plugin_maps = 1
 
 set cmdheight=1
 set scrolljump=15
-set colorcolumn=0
 set cursorline
 set foldlevel=999
 set scrolloff=999
